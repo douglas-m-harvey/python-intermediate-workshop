@@ -34,14 +34,19 @@ def test_daily_max(test, expected):
 
 
 @pytest.mark.parametrize(
-    "test, expected", 
+    "test, expected, expect_raises", 
     [
-        (np.zeros((3, 3)), np.zeros((3, 3))),
-        (np.ones((3, 3)), np.ones((3, 3))),
-        ([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[0.33, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]])
+        (np.zeros((3, 3)), np.zeros((3, 3)), None),
+        (np.ones((3, 3)), np.ones((3, 3)), None),
+        ([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[0.33, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]], None), 
+        ([[-1, 2, 3], [4, 5, 6], [7, 8, 9]], [[0.33, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]], ValueError)
     ]
  )
-def test_patient_normalise(test, expected):
+def test_patient_normalise(test, expected, expect_raises):
     """Test that normalisation works with a 3x3 array"""
     from inflammation.models import patient_normalise
-    npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal = 2)
+    if expect_raises is not None: 
+        with pytest.raises(expect_raises):
+            npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal = 2)
+    else: 
+        npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal = 2)
