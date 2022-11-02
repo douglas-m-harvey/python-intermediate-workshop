@@ -14,7 +14,7 @@ jobs:
         python-version: [3.8, 3.9]
 
     # Specify the OS of the runner
-    runs-on: ${{matrix.os}}
+    runs-on: ${{ matrix.os }}
 
     # Define our steps
     steps:
@@ -27,7 +27,7 @@ jobs:
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with: 
-          python-version: ${{matrix.python-version}}
+          python-version: ${{ matrix.python-version }}
 
       # Install dependencies
       - name: Install Python dependencies
