@@ -1,7 +1,5 @@
 name: CI
 
-name: CI
-
 # Specify which GitHub events will trigger a CI build
 on: push
 
