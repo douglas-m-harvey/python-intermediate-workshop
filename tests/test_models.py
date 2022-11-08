@@ -6,7 +6,7 @@ import numpy.testing as npt
 
 def test_daily_mean_zeros():
     """Test that mean function works for an array of zeros."""
-    from inflammation.models import daily_mean
+    #from inflammation.models import daily_mean
 
     test_input = np.array([[0, 0],
                            [0, 0],
