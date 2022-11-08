@@ -15,7 +15,8 @@ import pytest
 def test_daily_mean(test, expected):
     """Test that mean function works for arrays of zeros and integers."""
     from inflammation.models import daily_mean
-
+    
+    print(test, expected)
     npt.assert_array_equal(daily_mean(test), expected)
 
 
