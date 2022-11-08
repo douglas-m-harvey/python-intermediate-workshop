@@ -19,3 +19,6 @@ venv/
 
 # Jupyter notebooks
 *.ipynb
+
+# Test scripts
+temp.py
