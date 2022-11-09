@@ -12,6 +12,8 @@ import numpy as np
 
 # %%
 class Observation:
+    """Class for storing day-value pairs representing inflammation observations.
+    """
     def __init__(self, day, value):
         self.day = day
         self.value = value
@@ -22,6 +24,8 @@ class Observation:
 
 # %%
 class Person:
+    """Class defining a person object with a name. 
+    """
     def __init__(self, name: str):
         self.name = name
     
@@ -31,6 +35,11 @@ class Person:
 
 # %%
 class Doctor(Person):
+    """_summary_
+
+    Args:
+        Person (_type_): _description_
+    """
     def __init__(self, name: str):
         super().__init__(name)
         self.patients = {}
@@ -45,6 +54,11 @@ class Doctor(Person):
 
 # %%
 class Patient(Person):
+    """_summary_
+
+    Args:
+        Person (_type_): _description_
+    """
     def __init__(self, name: str):
         super().__init__(name)
         self.observations = []
